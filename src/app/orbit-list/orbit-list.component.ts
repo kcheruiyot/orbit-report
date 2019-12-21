@@ -9,7 +9,8 @@ import { Satellite } from '../satellite';
 })
 export class OrbitListComponent implements OnInit {
   @Input() satellites: Satellite[];
-  constructor() { }
+  constructor() {
+  this.zebraPattern = true;}
   sort(column: string): void {
     // array.sort modifies the array, sorting the items based on the given compare function
     this.satellites.sort(function(a: Satellite, b: Satellite): number {
@@ -20,8 +21,13 @@ export class OrbitListComponent implements OnInit {
        }
        return 0;
     });
+    
  }
-
+ zebraPattern:boolean;
+pattern(){
+this.zebraPattern = !this.zebraPattern;
+return this.zebraPattern;
+}
   ngOnInit() {
   }
 
